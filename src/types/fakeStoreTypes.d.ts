@@ -1,7 +1,3 @@
-export type IProducts = {
-  products: IProduct[]
-}
-
 export type IProduct = {
   id: number
   title: string

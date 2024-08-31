@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import { getAllProducts } from "../fakestore/services"
-import { IProducts } from "@/types/fakeStoreTypes"
+import { IProduct } from "@/types/fakeStoreTypes"
 
 export const useGetAllProducts = () => {
-  const { data, error, isLoading } = useQuery<IProducts>({
+  const { data, error, isLoading } = useQuery<IProduct[]>({
     queryKey: ["allProducts"],
     queryFn: () => getAllProducts(),
   })
