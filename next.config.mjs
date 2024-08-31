@@ -6,10 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "fakestoreapi.com",
         port: "",
-        pathname: "/img/**", // Permite todas as imagens do caminho especificado
+        pathname: "/img/**",
       },
     ],
   },
 }
 
-module.exports = nextConfig
+export default nextConfig
