@@ -2,7 +2,7 @@
 import { useGetAllProducts } from "@/services/hooks/useGetAllProducts"
 import { IProduct } from "@/types/fakeStoreTypes"
 import { Cards } from "./components/cards/cards"
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { Header } from "./components/header/header"
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch} showSearch />
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
         {isLoading && <p>Carregando produtos...</p>}
         {error && <p>Erro ao carregar produtos</p>}
