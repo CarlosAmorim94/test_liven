@@ -26,6 +26,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
         quantity: (prevCart[product.id]?.quantity || 0) + quantity,
       },
     }))
+    window.alert("Produto adicionado ao carrinho")
   }
 
   const removeFromCart = (id: number) => {
@@ -33,6 +34,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       const { [id]: _, ...rest } = prevCart
       return rest
     })
+    window.alert("Produto removido do carrinho")
   }
 
   const updateQuantity = (id: number, quantity: number) => {
@@ -47,6 +49,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 
   const clearCart = () => {
     setCart({})
+    window.alert("Carrinho limpo")
   }
 
   return (
