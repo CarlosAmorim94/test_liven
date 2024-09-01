@@ -1,17 +1,12 @@
-import { FC } from "react"
+import { FC, ButtonHTMLAttributes } from "react"
 
-type IButtonProps = {
-  onClick: () => void
+type IButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string
-  className?: string
 }
 
-export const Button: FC<IButtonProps> = ({ onClick, text, className }) => {
+export const Button: FC<IButtonProps> = ({ text, className, ...props }) => {
   return (
-    <button
-      onClick={onClick}
-      className={`py-2 px-4 rounded text-white ${className}`}
-    >
+    <button className={`py-2 px-4 rounded text-white ${className}`} {...props}>
       {text}
     </button>
   )
