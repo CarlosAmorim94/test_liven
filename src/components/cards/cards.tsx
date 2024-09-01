@@ -51,6 +51,7 @@ export const Cards: FC<cardsProps> = ({ product }) => {
       </div>
 
       <Button
+        id={`add-to-cart-${product.id}`}
         onClick={handleAddToCart}
         text="Adicionar ao Carrinho"
         className="mt-auto bg-blue-500 hover:bg-blue-600"
