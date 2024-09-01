@@ -1,9 +1,9 @@
 "use client"
 import { useGetAllProducts } from "@/services/hooks/useGetAllProducts"
 import { IProduct } from "@/types/fakeStoreTypes"
-import { Cards } from "./components/cards/cards"
+import { Cards } from "@/components/cards/cards"
 import { useMemo, useState } from "react"
-import { Header } from "./components/header/header"
+import { Header } from "@/components/header/header"
 
 export default function Home() {
   const { data: products, error, isLoading } = useGetAllProducts()

@@ -2,7 +2,7 @@
 import { FC, useState } from "react"
 import { IProduct } from "@/types/fakeStoreTypes"
 import Image from "next/image"
-import { useCart } from "@/app/contexts/cartContex"
+import { useCart } from "@/contexts/cartContex"
 import { QuantityButtons } from "../quantityButtons/quantityButtons"
 import { Button } from "../button/button"
 

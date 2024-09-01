@@ -1,4 +1,4 @@
-import { useCart } from "@/app/contexts/cartContex"
+import { useCart } from "@/contexts/cartContex"
 import { IProduct } from "@/types/fakeStoreTypes"
 import Image from "next/image"
 import { FC } from "react"
@@ -49,7 +49,7 @@ export const CartsCards: FC<CartsCardsProps> = ({ product, quantity }) => {
       <Button
         onClick={() => removeFromCart(1)}
         text="Remover do Carrinho"
-        className="bg-red-500 hover:bg-red-600 mt-auto"
+        className="bg-red-500 hover:bg-red-600 mt-auto w-full"
       />
     </div>
   )
