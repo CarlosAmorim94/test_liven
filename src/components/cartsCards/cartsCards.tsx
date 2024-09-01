@@ -47,7 +47,7 @@ export const CartsCards: FC<CartsCardsProps> = ({ product, quantity }) => {
         </p>
       </div>
       <Button
-        onClick={() => removeFromCart(1)}
+        onClick={() => removeFromCart(product.id)}
         text="Remover do Carrinho"
         className="bg-red-500 hover:bg-red-600 mt-auto w-full"
       />
