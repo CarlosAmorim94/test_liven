@@ -1,28 +1,22 @@
-"use client"
-import { FC, useState } from "react"
+import { useCart } from "@/app/contexts/cartContex"
 import { IProduct } from "@/types/fakeStoreTypes"
 import Image from "next/image"
-import { useCart } from "@/app/contexts/cartContex"
+import { FC } from "react"
 import { QuantityButtons } from "../quantityButtons/quantityButtons"
 import { Button } from "../button/button"
 
-interface cardsProps {
+interface CartsCardsProps {
   product: IProduct
+  quantity: number
 }
 
-export const Cards: FC<cardsProps> = ({ product }) => {
-  const { addToCart } = useCart()
-  const [quantity, setQuantity] = useState(1)
-
-  const handleQuantityChange = (change: number) => {
-    setQuantity((prevQuantity) => Math.max(1, prevQuantity + change))
-  }
-
-  const handleAddToCart = () => {
-    addToCart(product, quantity)
-  }
+export const CartsCards: FC<CartsCardsProps> = ({ product, quantity }) => {
+  const { removeFromCart, updateQuantity } = useCart()
 
   const totalPrice = product.price * quantity
+
+  const onRemove = () => updateQuantity(product.id, Math.max(1, quantity - 1))
+  const onAdd = () => updateQuantity(product.id, quantity + 1)
 
   return (
     <div
@@ -38,24 +32,24 @@ export const Cards: FC<cardsProps> = ({ product }) => {
       />
       <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
       <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-      <p className="text-lg font-bold text-blue-500 mb-2">
-        ${product.price.toFixed(2)}
+      <p className="text-sm font-bold text-blue-500 mb-2">
+        Unidade: ${product.price.toFixed(2)}
       </p>
+      <p className="text-sm mb-4">Quantidade: {quantity}</p>
       <div className="flex justify-between">
         <QuantityButtons
           quantity={quantity}
-          onClickButtonAdd={() => handleQuantityChange(1)}
-          onClickButtonRemove={() => handleQuantityChange(-1)}
+          onClickButtonAdd={() => onAdd()}
+          onClickButtonRemove={() => onRemove()}
         />
         <p className="text-lg font-bold text-green-600 mb-2">
           TOTAL: ${totalPrice.toFixed(2)}
         </p>
       </div>
-
       <Button
-        onClick={handleAddToCart}
-        text="Adicionar ao Carrinho"
-        className="mt-auto bg-blue-500 hover:bg-blue-600"
+        onClick={() => removeFromCart(1)}
+        text="Remover do Carrinho"
+        className="bg-red-500 hover:bg-red-600 mt-auto"
       />
     </div>
   )
