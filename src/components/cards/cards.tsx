@@ -29,11 +29,9 @@ export const Cards: FC<cardsProps> = ({ product }) => {
       key={product.id}
       className="border p-4 rounded shadow-md flex flex-col"
     >
-      <Image
+      <img
         src={product.image}
         alt={product.title}
-        width={300}
-        height={300}
         className="w-full h-40 object-cover mb-4 rounded"
       />
       <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
