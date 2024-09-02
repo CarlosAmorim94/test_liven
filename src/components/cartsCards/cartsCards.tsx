@@ -20,6 +20,7 @@ export const CartsCards: FC<CartsCardsProps> = ({ product, quantity }) => {
 
   return (
     <div
+      data-testid={`cart-card-${product.title}`}
       key={product.id}
       className="border p-4 rounded shadow-md flex flex-col"
     >
@@ -45,7 +46,7 @@ export const CartsCards: FC<CartsCardsProps> = ({ product, quantity }) => {
         </p>
       </div>
       <Button
-        id={`remove-from-cart-${product.id}`}
+        data-testid={`remove-from-cart-${product.id}`}
         onClick={() => removeFromCart(product.id)}
         text="Remover do Carrinho"
         className="bg-red-500 hover:bg-red-600 mt-auto w-full"

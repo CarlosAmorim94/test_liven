@@ -1,10 +1,8 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import CartPage from "./page"
-import { ClientWrapper } from "@/providers/ClientWrapper"
 import { useCart } from "@/contexts/cartContex"
+import CartPage from "../cart/page"
 
-// Mock do hook useCart
 jest.mock("../../contexts/cartContex")
 
 const mockCart = {
