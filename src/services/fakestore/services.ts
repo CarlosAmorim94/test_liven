@@ -17,21 +17,3 @@ export const getProduct = async (id: string) => {
     throw error
   }
 }
-
-export const getCategories = async () => {
-  try {
-    const { data } = await api.get("/categories")
-    return data
-  } catch (error) {
-    throw error
-  }
-}
-
-export const getCategory = async (category: string) => {
-  try {
-    const { data } = await api.get(`/categories/${category}`)
-    return data
-  } catch (error) {
-    throw error
-  }
-}
