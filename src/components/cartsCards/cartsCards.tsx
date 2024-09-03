@@ -29,7 +29,7 @@ export const CartsCards: FC<CartsCardsProps> = ({
   return (
     <div
       data-testid={`cart-card-${product.title || index}`}
-      className="border p-4 rounded shadow-md flex flex-col"
+      className="border p-4 rounded shadow-md flex flex-col md:flex-row items-center md:items-start w-full"
     >
       {product.image && !imageError ? (
         <Image
@@ -37,7 +37,7 @@ export const CartsCards: FC<CartsCardsProps> = ({
           alt={product.title || "Sem descrição"}
           width={200}
           height={200}
-          className="w-full h-40 object-cover mb-4 rounded"
+          className="w-full md:w-40 h-40 object-cover mb-4 md:mb-0 md:mr-4 rounded"
           onError={() => setImageError(true)}
         />
       ) : (
@@ -46,35 +46,37 @@ export const CartsCards: FC<CartsCardsProps> = ({
           alt="No Image"
           width={200}
           height={200}
-          className="w-full h-40 object-cover mb-4 rounded"
+          className="w-full md:w-40 h-40 object-cover mb-4 md:mb-0 md:mr-4 rounded"
         />
       )}
-      <h2 className="text-lg font-semibold mb-2">
-        {product.title || "Sem título"}
-      </h2>
-      <p className="text-sm text-gray-600 mb-4">
-        {product.description || "Sem descrição"}
-      </p>
-      <p className="text-sm font-bold text-blue-500 mb-2">
-        Unidade: ${product.price.toFixed(2) || 0}
-      </p>
-      <p className="text-sm mb-4">Quantidade: {quantity || 0}</p>
-      <div className="flex justify-between">
-        <QuantityButtons
-          quantity={quantity || 1}
-          onClickButtonAdd={() => onAdd()}
-          onClickButtonRemove={() => onRemove()}
-        />
-        <p className="text-lg font-bold text-green-600 mb-2">
-          TOTAL: ${totalPrice.toFixed(2) || 0}
+      <div className="flex flex-col flex-1">
+        <h2 className="text-lg font-semibold mb-2">
+          {product.title || "Sem título"}
+        </h2>
+        <p className="text-sm text-gray-600 mb-4">
+          {product.description || "Sem descrição"}
         </p>
+        <p className="text-sm font-bold text-blue-500 mb-2">
+          Unidade: ${product.price.toFixed(2) || 0}
+        </p>
+        <p className="text-sm mb-4">Quantidade: {quantity || 0}</p>
+        <div className="flex justify-between items-center mb-4">
+          <QuantityButtons
+            quantity={quantity || 1}
+            onClickButtonAdd={onAdd}
+            onClickButtonRemove={onRemove}
+          />
+          <p className="text-lg font-bold text-green-600">
+            TOTAL: ${totalPrice.toFixed(2) || 0}
+          </p>
+        </div>
+        <Button
+          data-testid={`remove-from-cart-${product.id || index}`}
+          onClick={() => removeFromCart(product.id || index)}
+          text="Remover do Carrinho"
+          className="bg-red-500 hover:bg-red-600 w-full md:w-auto"
+        />
       </div>
-      <Button
-        data-testid={`remove-from-cart-${product.id || index}`}
-        onClick={() => removeFromCart(product.id || index)}
-        text="Remover do Carrinho"
-        className="bg-red-500 hover:bg-red-600 mt-auto w-full"
-      />
     </div>
   )
 }
