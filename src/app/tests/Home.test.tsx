@@ -13,7 +13,7 @@ const mockProducts = [
     price: 10,
     category: "Categoria 1",
     description: "Descrição do Produto 1",
-    image: "imagem1.jpg",
+    image: "https://i.pravatar.cc/320",
     rating: { rate: 4.5, count: 10 },
   },
   {
@@ -22,7 +22,7 @@ const mockProducts = [
     price: 20,
     category: "Categoria 2",
     description: "Descrição do Produto 2",
-    image: "imagem2.jpg",
+    image: "https://i.pravatar.cc/320",
     rating: { rate: 4.0, count: 20 },
   },
 ]

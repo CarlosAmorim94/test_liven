@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/img/**",
       },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+        port: "",
+        pathname: "/320",
+      },
     ],
   },
 }
