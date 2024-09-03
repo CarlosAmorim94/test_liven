@@ -9,7 +9,7 @@ type IQuantityButtonsProps = {
 export const QuantityButtons: FC<IQuantityButtonsProps> = ({
   onClickButtonAdd,
   onClickButtonRemove,
-  quantity,
+  quantity = 1,
 }) => {
   return (
     <div className="flex items-center space-x-2 mb-4">

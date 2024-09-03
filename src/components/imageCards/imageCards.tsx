@@ -3,13 +3,13 @@ import { FC, useState } from "react"
 import Image from "next/image"
 import NoImage from "@/assets/images/NoImage.gif"
 
-interface imageCardsProps {
+type IImageCardsProps = {
   image: string
   title: string
   className?: string
 }
 
-export const ImageCards: FC<imageCardsProps> = ({
+export const ImageCards: FC<IImageCardsProps> = ({
   image = "",
   title = "",
   className = "",

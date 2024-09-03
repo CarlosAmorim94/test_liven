@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from "react"
 import { IProduct } from "@/types/fakeStoreTypes"
 
-interface CartContextType {
+type ICartContextProps = {
   cart: { [key: number]: { product: IProduct; quantity: number } }
   addToCart: (product: IProduct, quantity: number) => void
   removeFromCart: (id: number) => void
@@ -9,7 +9,7 @@ interface CartContextType {
   clearCart: () => void
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined)
+const CartContext = createContext<ICartContextProps | undefined>(undefined)
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({
   children,

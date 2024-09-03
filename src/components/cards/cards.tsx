@@ -1,20 +1,17 @@
 "use client"
 import { FC, useState } from "react"
 import { IProduct } from "@/types/fakeStoreTypes"
-import Image from "next/image"
 import { useCart } from "@/contexts/cartContex"
 import { QuantityButtons } from "../quantityButtons/quantityButtons"
 import { Button } from "../button/button"
-import NoImage from "@/assets/images/NoImage.gif"
 import { ImageCards } from "../imageCards/imageCards"
 
-interface cardsProps {
+type ICardsProps = {
   product: IProduct
   index: number
 }
 
-export const Cards: FC<cardsProps> = ({ product, index }) => {
-  const [imageError, setImageError] = useState(false)
+export const Cards: FC<ICardsProps> = ({ product, index }) => {
   const { addToCart } = useCart()
   const [quantity, setQuantity] = useState(1)
 

@@ -5,13 +5,13 @@ import { QuantityButtons } from "../quantityButtons/quantityButtons"
 import { Button } from "../button/button"
 import { ImageCards } from "../imageCards/imageCards"
 
-interface CartsCardsProps {
+type ICartsCardsProps = {
   product: IProduct
   quantity: number
   index: number
 }
 
-export const CartsCards: FC<CartsCardsProps> = ({
+export const CartsCards: FC<ICartsCardsProps> = ({
   product,
   quantity = 1,
   index,

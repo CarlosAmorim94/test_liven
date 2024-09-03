@@ -7,7 +7,7 @@ type IButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const Button: FC<IButtonProps> = ({ text, className, ...props }) => {
   return (
     <button className={`py-2 px-4 rounded text-white ${className}`} {...props}>
-      {text}
+      {text || ""}
     </button>
   )
 }
