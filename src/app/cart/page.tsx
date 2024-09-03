@@ -36,11 +36,12 @@ export default function CartPage() {
           <p>Seu carrinho está vazio.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cartItems.map(({ product, quantity }) => (
+            {cartItems.map(({ product, quantity }, index) => (
               <CartsCards
                 product={product}
                 quantity={quantity}
                 key={product.id}
+                index={index}
               />
             ))}
           </div>

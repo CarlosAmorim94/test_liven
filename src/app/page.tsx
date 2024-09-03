@@ -31,8 +31,8 @@ export default function Home() {
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
         {isLoading && <p>Carregando produtos...</p>}
         {error && <p>Erro ao carregar produtos</p>}
-        {filteredProducts.map((product: IProduct) => (
-          <Cards product={product} key={product.id} />
+        {filteredProducts.map((product: IProduct, index) => (
+          <Cards product={product} key={product.id} index={index} />
         ))}
       </div>
     </div>
