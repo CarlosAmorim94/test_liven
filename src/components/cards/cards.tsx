@@ -6,6 +6,7 @@ import { useCart } from "@/contexts/cartContex"
 import { QuantityButtons } from "../quantityButtons/quantityButtons"
 import { Button } from "../button/button"
 import NoImage from "@/assets/images/NoImage.gif"
+import { ImageCards } from "../imageCards/imageCards"
 
 interface cardsProps {
   product: IProduct
@@ -29,24 +30,11 @@ export const Cards: FC<cardsProps> = ({ product, index }) => {
 
   return (
     <div className="border p-4 rounded shadow-md flex flex-col">
-      {product.image && !imageError ? (
-        <Image
-          src={product.image}
-          alt={product.title || "Sem descrição"}
-          width={200}
-          height={200}
-          className="w-full h-40 object-cover mb-4 rounded"
-          onError={() => setImageError(true)}
-        />
-      ) : (
-        <Image
-          src={NoImage}
-          alt="No Image"
-          width={200}
-          height={200}
-          className="w-full h-40 object-cover mb-4 rounded"
-        />
-      )}
+      <ImageCards
+        image={product.image}
+        title={product.title}
+        className="w-full h-40 object-cover mb-4 rounded"
+      />
       <h2 className="text-lg font-semibold mb-2">
         {product.title || "Sem título"}
       </h2>

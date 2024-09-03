@@ -1,11 +1,9 @@
-"use client"
 import { useCart } from "@/contexts/cartContex"
 import { IProduct } from "@/types/fakeStoreTypes"
-import { FC, useState } from "react"
+import { FC } from "react"
 import { QuantityButtons } from "../quantityButtons/quantityButtons"
 import { Button } from "../button/button"
-import Image from "next/image"
-import NoImage from "@/assets/images/NoImage.gif"
+import { ImageCards } from "../imageCards/imageCards"
 
 interface CartsCardsProps {
   product: IProduct
@@ -18,7 +16,6 @@ export const CartsCards: FC<CartsCardsProps> = ({
   quantity = 1,
   index,
 }) => {
-  const [imageError, setImageError] = useState(false)
   const { removeFromCart, updateQuantity } = useCart()
 
   const totalPrice = product.price * quantity
@@ -31,24 +28,12 @@ export const CartsCards: FC<CartsCardsProps> = ({
       data-testid={`cart-card-${product.title || index}`}
       className="border p-4 rounded shadow-md flex flex-col md:flex-row items-center md:items-start w-full"
     >
-      {product.image && !imageError ? (
-        <Image
-          src={product.image}
-          alt={product.title || "Sem descrição"}
-          width={200}
-          height={200}
-          className="w-full md:w-40 h-40 object-cover mb-4 md:mb-0 md:mr-4 rounded"
-          onError={() => setImageError(true)}
-        />
-      ) : (
-        <Image
-          src={NoImage}
-          alt="No Image"
-          width={200}
-          height={200}
-          className="w-full md:w-40 h-40 object-cover mb-4 md:mb-0 md:mr-4 rounded"
-        />
-      )}
+      <ImageCards
+        image={product.image}
+        title={product.title}
+        className="w-full md:w-40 h-40 object-cover mb-4 md:mb-0 md:mr-4 rounded"
+      />
+
       <div className="flex flex-col flex-1">
         <h2 className="text-lg font-semibold mb-2">
           {product.title || "Sem título"}

@@ -17,21 +17,22 @@ export default function CartPage() {
     <div>
       <Header />
       <div className="p-4 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <h1 className="text-2xl font-bold">Carrinho de Compras</h1>
           {cartItems.length > 0 && (
-            <div className="text-xl font-semibold  text-green-600">
-              Total do Carrinho: ${cartTotal.toFixed(2)}
+            <div className="text-xl font-semibold text-green-600 whitespace-nowrap">
+              Total do Carrinho: ${cartTotal.toFixed(2) || 0}
             </div>
           )}
           {cartItems.length > 0 && (
             <Button
               onClick={clearCart}
               text="Limpar Carrinho"
-              className="bg-red-500 hover:bg-red-600 mb-4"
+              className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white"
             />
           )}
         </div>
+
         {cartItems.length === 0 ? (
           <p>Seu carrinho está vazio.</p>
         ) : (
